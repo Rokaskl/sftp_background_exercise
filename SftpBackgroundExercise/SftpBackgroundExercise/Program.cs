@@ -22,6 +22,8 @@ await Host.CreateDefaultBuilder(args).ConfigureServices(services =>
     // DI
     services.AddTransient<IFileRecordRepository, FileRecordRepository>();
     services.AddTransient<ISftpService, SftpService>();
+    
+    // Add background worker
     services.AddHostedService<PeriodicBackgroundTask>();
 
 }).Build().RunAsync();
